@@ -1,2 +1,4 @@
 script:
   - echo -e "testestest"
+  - mail -s "hi" fluryro@gmail.com <<< "how are you?"<br>
+
