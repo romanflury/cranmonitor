@@ -1,16 +1,2 @@
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  on:
-    branch: master
-
-pages:
-  stage: deploy
-  script:
-  - echo -e 'build & check spam with a stable R version'
-  - echo -e '  export environment variables to have CRAN like conditions'
-  - mail -s "hi" fluryro@gmail.com <<< "how are you?"<br>
-  only:
-  - master
+script:
+  - echo -e "testestest"
