@@ -1,0 +1,10 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+  - echo -e 'build & check spam with a stable R version'
+  - echo -e '  export environment variables to have CRAN like conditions'
+  - Rscript -e 'test_email <- mime(To = "roman.flury@math.uzh.ch",From = "fluryro@gmail.com",Subject = "this is just a gmailr test",body = "Can you hear me now?");send_message(test_email)'
+  only:
+  - master
