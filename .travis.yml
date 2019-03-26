@@ -1,4 +1,4 @@
 script:
   - echo -e "testestest"
-  - mail -s "hi" fluryro@gmail.com <<< "how are you?"<br>
+  - Rscript -e 'library(gmailr);test_email <- mime(To = "roman.flury@math.uzh.ch",From = "fluryro@gmail.com",Subject = "this is just a gmailr test",body = "Can you hear me now?");send_message(test_email)'
 
