@@ -1,4 +1,18 @@
-script:
+language: r
+r:
+  - release
+sudo: false
+cache: packages
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+      env:
+        global:
+          - R_LIBS="http://cran.rstudio.com"
+after_success:
   - echo -e "testestest"
   - Rscript -e 'library(gmailr);test_email <- mime(To = "roman.flury@math.uzh.ch",From = "fluryro@gmail.com",Subject = "this is just a gmailr test",body = "Can you hear me now?");send_message(test_email)'
 
