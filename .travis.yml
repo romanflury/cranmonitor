@@ -1,18 +1,19 @@
-language: r
-r:
-  - release
-sudo: false
-cache: packages
+language: php
 
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
-      env:
-        global:
-          - R_LIBS="http://cran.rstudio.com"
-after_success:
-  - echo -e "testestest"
-  - Rscript -e 'library(gmailr);test_email <- mime(To = "roman.flury@math.uzh.ch",From = "fluryro@gmail.com",Subject = "this is just a gmailr test",body = "Can you hear me now?");send_message(test_email)'
+php:
+  - 5.3
+  - 5.4
+  - 5.5
 
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y -qq postfix
+
+before_script:
+  - sudo service postfix stop
+  - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
+  - echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail
+  - echo 'sendmail_path = "/usr/sbin/sendmail -t -i "' | sudo tee "/home/travis/.phpenv/versions/`php -i | grep "PHP Version" | head -n 1 | grep -o -P '\d+\.\d+\.\d+.*'`/etc/conf.d/sendmail.ini"
+
+notifications:
+  email: false
