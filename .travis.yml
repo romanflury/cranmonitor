@@ -1,8 +1,7 @@
 language: r
 r:
   - release
-sudo: false
-cache: packages
+
 
 matrix:
   include:
