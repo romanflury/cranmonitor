@@ -16,4 +16,3 @@ after_success:
   - sudo apt-get install sendmail
   - echo -e "testestest"
 
-language: php
