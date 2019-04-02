@@ -1,5 +1,14 @@
+image: alpine:latest
 
-after_success:
+pages:
+  stage: deploy
+  script:
   - sudo apt-get install sendmail
   - echo -e "testestest"
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
 
