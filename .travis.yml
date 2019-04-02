@@ -1,16 +1,4 @@
-language: r
-r:
-  - release
 
-
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
-      env:
-        global:
-          - R_LIBS="http://cran.rstudio.com"
 after_success:
   - sudo apt-get install sendmail
   - echo -e "testestest"
