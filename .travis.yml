@@ -14,4 +14,4 @@ matrix:
 after_success:
   - sudo apt-get install sendmail
   - echo -e "testestest"
-  - sendmail fluryro@gmail.com  < test.txt
+  - sendmail fluryro@gmail.com < test.txt
