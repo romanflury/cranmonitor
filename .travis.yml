@@ -12,6 +12,5 @@ matrix:
         global:
           - R_LIBS="http://cran.rstudio.com"
 after_success:
-  - sudo apt-get install sendmail
   - echo -e "testestest"
-  - sendmail roman.flury@math.uzh.ch < test.txt
+  - /usr/lib/sm.bin/sendmail romanflury@hotmail.com < test.txt
