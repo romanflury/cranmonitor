@@ -13,4 +13,4 @@ matrix:
           - R_LIBS="http://cran.rstudio.com"
 after_success:
   - echo -e "testestest"
-  - /usr/lib/sm.bin/sendmail romanflury@hotmail.com < test.txt
+  - Rscript 'test.R' 2>&1 | mail -s "test" romanflury@hotmail.com 
